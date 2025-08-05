@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "cc.unilock.treeclimbing.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "LivingEntityMixin",
+    "RotatedPillarBlockMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

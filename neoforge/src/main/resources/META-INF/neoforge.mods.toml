@@ -1,0 +1,23 @@
+modLoader = "lowcodefml"
+loaderVersion = "[1,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/unilock/TreeClimbing/issues"
+
+[[mods]]
+modId = "treeclimbing"
+version = "${version}"
+displayName = "TreeClimbing"
+displayURL = "https://github.com/unilock/TreeClimbing"
+authors = "unilock"
+description = '''Climb logs and trees!'''
+logoFile = "icon.png"
+
+[[mixins]]
+config = "treeclimbing.mixins.json"
+
+[[dependencies.treeclimbing]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
