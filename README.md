@@ -1,4 +1,4 @@
-# TreeClimbing
+# Climbable Logs
 
 Climb logs and trees!
 
