@@ -29,9 +29,7 @@ public abstract class LivingEntityMixin extends Entity {
 		if (!this.isSpectator()) {
 			AABB bb = this.getBoundingBox();
 			for (BlockPos pos : BlockPos.betweenClosed(Mth.floor(bb.minX), Mth.floor(bb.minY), Mth.floor(bb.minZ), Mth.floor(bb.maxX), Mth.floor(bb.maxY), Mth.floor(bb.maxZ))) {
-				var helper = new TreeHelper(this.level());
-				helper.scan(pos);
-				if (helper.isTree()) {
+				if (TreeHelper.create(this.level()).isTreeTrunk(pos)) {
 					this.lastClimbablePos = Optional.of(pos);
 					return true;
 				}

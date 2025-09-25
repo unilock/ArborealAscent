@@ -20,15 +20,17 @@ public class TreeHelper {
 	private int leaves = 0;
 	private int logs = 0;
 
-	public TreeHelper(BlockGetter level) {
+	private TreeHelper(BlockGetter level) {
 		this.level = level;
 	}
 
-	public boolean isTree() {
-		return this.leaves >= minLeaves && this.logs >= minLogs;
+	public static TreeHelper create(BlockGetter level) {
+		return new TreeHelper(level);
 	}
 
-	public void scan(BlockPos center) {
+	public boolean isTreeTrunk(BlockPos center) {
+		if (!this.level.getBlockState(center).is(BlockTags.LOGS)) return false;
+
 		HashSet<BlockPos> scanning = new HashSet<>();
 		HashSet<BlockPos> todo = new HashSet<>();
 		this.add(center, scanning);
@@ -59,25 +61,27 @@ public class TreeHelper {
 				it.remove();
 			}
 
-			if (this.isTree()) {
-				return;
+			if (this.leaves >= minLeaves && this.logs >= minLogs) {
+				return true;
 			}
 
 			scanning.addAll(todo);
 			todo.clear();
 		}
+
+		return false;
 	}
 
 	private void add(BlockPos pos, HashSet<BlockPos> set) {
-		BlockState state = level.getBlockState(pos);
+		BlockState state = this.level.getBlockState(pos);
 
 		if (state.is(BlockTags.LEAVES)) {
 			set.add(pos);
-			leaves++;
+			this.leaves++;
 		}
 		if (state.is(BlockTags.LOGS)) {
 			set.add(pos);
-			logs++;
+			this.logs++;
 		}
 	}
 }
