@@ -1,9 +1,7 @@
 package cc.unilock.arborealascent.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -20,7 +18,7 @@ public class BlockBehaviourMixin {
 
 	@ModifyReturnValue(method = "getCollisionShape(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;", at = @At("RETURN"))
 	private VoxelShape getCollisionShape(VoxelShape original, BlockState state) {
-		if (state.is(BlockTags.LOGS) && state.hasProperty(RotatedPillarBlock.AXIS) && Direction.Axis.Y.equals(state.getValue(RotatedPillarBlock.AXIS))) {
+		if (state.is(BlockTags.LOGS)) {
 			return LOG;
 		}
 		return original;
