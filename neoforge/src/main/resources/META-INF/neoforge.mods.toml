@@ -1,21 +1,21 @@
 modLoader = "lowcodefml"
 loaderVersion = "[1,)"
 license = "MIT"
-issueTrackerURL = "https://github.com/unilock/TreeClimbing/issues"
+issueTrackerURL = "https://github.com/unilock/ArborealAscent/issues"
 
 [[mods]]
-modId = "treeclimbing"
+modId = "arborealascent"
 version = "${version}"
-displayName = "TreeClimbing"
-displayURL = "https://github.com/unilock/TreeClimbing"
+displayName = "Arboreal Ascent"
+displayURL = "https://github.com/unilock/ArborealAscent"
 authors = "unilock"
-description = '''Climb logs and trees!'''
+description = '''Climb trees!'''
 logoFile = "icon.png"
 
 [[mixins]]
-config = "treeclimbing.mixins.json"
+config = "arborealascent.mixins.json"
 
-[[dependencies.treeclimbing]]
+[[dependencies.arborealascent]]
 modId = "minecraft"
 type = "required"
 versionRange = "[1.21,)"

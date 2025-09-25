@@ -1,5 +1,7 @@
-# Climbable Logs
+# Arboreal Ascent
 
-Climb logs and trees!
+Climb trees!
 
-Inspired by https://github.com/ReikaKalseki/TreeClimbing
+Heavily ispired by ReikaKalseki's [TreeClimbing](https://github.com/ReikaKalseki/TreeClimbing)
+
+Credit to [EsetKalenko](https://github.com/Gronglegrowth) for the name!

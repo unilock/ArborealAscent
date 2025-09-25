@@ -1,6 +1,6 @@
-package cc.unilock.treeclimbing.mixin;
+package cc.unilock.arborealascent.mixin;
 
-import cc.unilock.treeclimbing.TreeHelper;
+import cc.unilock.arborealascent.TreeHelper;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;

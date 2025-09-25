@@ -1,4 +1,4 @@
-package cc.unilock.treeclimbing;
+package cc.unilock.arborealascent;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;

@@ -12,4 +12,4 @@ include("xplat")
 include("fabric")
 include("neoforge")
 
-rootProject.name = "TreeClimbing"
+rootProject.name = "ArborealAscent"
