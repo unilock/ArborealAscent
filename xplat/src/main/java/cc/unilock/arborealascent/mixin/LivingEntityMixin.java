@@ -7,6 +7,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,9 +27,9 @@ public abstract class LivingEntityMixin extends Entity {
 
 	@ModifyReturnValue(method = "onClimbable", at = @At("RETURN"))
 	private boolean onClimbable(boolean original) {
-		if (!this.isSpectator()) {
+		if (Player.class.isAssignableFrom(getClass()) && !this.isSpectator()) {
 			AABB bb = this.getBoundingBox();
-			for (BlockPos pos : BlockPos.betweenClosed(Mth.floor(bb.minX), Mth.floor(bb.minY), Mth.floor(bb.minZ), Mth.floor(bb.maxX), Mth.floor(bb.maxY), Mth.floor(bb.maxZ))) {
+			for (BlockPos pos : BlockPos.betweenClosed(Mth.floor(bb.minX-0.03125), Mth.floor(bb.minY), Mth.floor(bb.minZ-0.03125), Mth.floor(bb.maxX), Mth.floor(bb.maxY), Mth.floor(bb.maxZ))) {
 				if (TreeHelper.create(this.level()).isTreeTrunk(pos)) {
 					this.lastClimbablePos = Optional.of(pos);
 					return true;

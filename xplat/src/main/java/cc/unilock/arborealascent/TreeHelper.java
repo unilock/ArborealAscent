@@ -28,7 +28,19 @@ public class TreeHelper {
 		return new TreeHelper(level);
 	}
 
+	public boolean isTreeBranch(BlockPos center) {
+		if (!this.level.getBlockState(center).is(BlockTags.LEAVES)) return false;
+
+		return isTree(center);
+	}
+
 	public boolean isTreeTrunk(BlockPos center) {
+		if (!this.level.getBlockState(center).is(BlockTags.LOGS)) return false;
+
+		return isTree(center);
+	}
+
+	private boolean isTree(BlockPos center) {
 		if (!this.level.getBlockState(center).is(BlockTags.LOGS)) return false;
 
 		HashSet<BlockPos> scanning = new HashSet<>();

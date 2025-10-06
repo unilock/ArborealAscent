@@ -3,7 +3,6 @@
   "package": "cc.unilock.arborealascent.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "BlockBehaviourMixin",
     "LivingEntityMixin"
   ],
   "client": [],
