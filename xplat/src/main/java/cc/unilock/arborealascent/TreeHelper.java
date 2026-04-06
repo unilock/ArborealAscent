@@ -8,13 +8,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class TreeHelper {
-	// TODO: config
-	private static final int maxDepth = 100;
-	private static final int minLeaves = 5;
-	private static final int minLogs = 2;
+import static cc.unilock.arborealascent.ArborealAscent.CONFIG;
 
+public class TreeHelper {
 	private final BlockGetter level;
+
+	private final int maxDepth;
+	private final int minLeaves;
+	private final int minLogs;
 
 	private final HashSet<BlockPos> scanned = new HashSet<>();
 	private int leaves = 0;
@@ -22,6 +23,9 @@ public class TreeHelper {
 
 	private TreeHelper(BlockGetter level) {
 		this.level = level;
+		this.maxDepth = CONFIG.maxDepth.value();
+		this.minLeaves = CONFIG.minLeaves.value();
+		this.minLogs = CONFIG.minLogs.value();
 	}
 
 	public static TreeHelper create(BlockGetter level) {
@@ -31,13 +35,13 @@ public class TreeHelper {
 	public boolean isTreeBranch(BlockPos center) {
 		if (!this.level.getBlockState(center).is(BlockTags.LEAVES)) return false;
 
-		return isTree(center);
+		return CONFIG.skipTreeCheck.value() || isTree(center);
 	}
 
 	public boolean isTreeTrunk(BlockPos center) {
 		if (!this.level.getBlockState(center).is(BlockTags.LOGS)) return false;
 
-		return isTree(center);
+		return CONFIG.skipTreeCheck.value() || isTree(center);
 	}
 
 	private boolean isTree(BlockPos center) {
