@@ -43,6 +43,10 @@ allprojects {
             name = 'ParchmentMC'
             url = 'https://maven.parchmentmc.org/'
         }
+        maven {
+            name 'Sleeping Town'
+            url 'https://repo.sleeping.town/'
+        }
     }
 
     tasks.withType(JavaCompile).configureEach {

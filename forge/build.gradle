@@ -35,6 +35,8 @@ dependencies {
     annotationProcessor(compileOnly("io.github.llamalad7:mixinextras-common:0.4.0"))
     implementation(include("io.github.llamalad7:mixinextras-forge:0.4.0"))
 
+    implementation(include("folk.sisby:kaleido-config:${rootProject.kaleido_version}"))
+
     common(project(path: ":xplat", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":xplat", configuration: "transformProductionForge")) { transitive = false }
 }
